@@ -1,0 +1,8 @@
+<!-- recipe-search.component.html -->
+<div class="flex items-center justify-center w-full mb-4">
+    <input class="border border-gray-300 p-2 rounded w-64 md:w-96" [(ngModel)]="searchQuery"
+        placeholder="Search by name, ingredients, or duration" />
+    <button class="bg-blue-500 text-white mx-1 px-8 py-2 rounded hover:bg-blue-600" (click)="onSearch()">
+        Search
+    </button>
+</div>

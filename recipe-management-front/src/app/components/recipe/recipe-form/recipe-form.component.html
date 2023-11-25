@@ -1,0 +1,66 @@
+<!-- recipe-form.component.html -->
+<div class="max-w-md mx-auto">
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="recipeName">
+                Recipe Name
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="recipeName" type="text" placeholder="Enter recipe name" [(ngModel)]="recipe.name" name="recipeName"
+                required>
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="ingredients">
+                Ingredients
+            </label>
+            <textarea
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="ingredients" placeholder="Enter ingredients (one per line)" [(ngModel)]="ingredients"
+                name="ingredients" required></textarea>
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="preparationSteps">
+                Preparation Steps
+            </label>
+            <textarea
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="preparationSteps" placeholder="Enter preparation steps (one per line)"
+                [(ngModel)]="preparationSteps" name="preparationSteps" required></textarea>
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="preparationTime">
+                Preparation Time (in minutes)
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="preparationTime" type="number" placeholder="Enter preparation time"
+                [(ngModel)]="recipe.preparationTime" name="preparationTime" required>
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="photo">
+                Photo URL (optional)
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="photo" type="text" placeholder="Enter photo URL (optional)" [(ngModel)]="recipe.photo" name="photo">
+        </div>
+
+        <div class="flex items-center justify-between">
+            <button
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button" (click)="submitForm()">
+                {{ isEditMode ? 'Update Recipe' : 'Save Recipe' }}
+            </button>
+            <button
+                class="bg-gray-400 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button" (click)="cancelForm()">
+                Cancel
+            </button>
+        </div>
+    </form>
+</div>

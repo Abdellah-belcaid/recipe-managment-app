@@ -1,0 +1,36 @@
+<!-- login.component.html -->
+<div class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+        <img src="assets/images/recipe.png" alt="Logo" class="mx-auto mb-4 h-16 w-16">
+        <h2 class="text-3xl font-semibold text-center mb-6">Recipe Management</h2>
+        <form>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Username
+                </label>
+                <input class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:shadow-outline"
+                    id="username" type="text" placeholder="Enter your username">
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                    Password
+                </label>
+                <input class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:shadow-outline"
+                    id="password" type="password" placeholder="Enter your password">
+            </div>
+
+            <button
+                class="w-full bg-blue-500 text-white py-3 px-4 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline"
+                type="button">
+                Login
+            </button>
+
+            <div class="mt-4 text-center">
+                <p class="text-gray-600">Not registered yet?
+                    <a routerLink="/register" class="text-blue-500 hover:underline">Register here</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
