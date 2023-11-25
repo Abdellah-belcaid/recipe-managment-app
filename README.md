@@ -43,7 +43,7 @@ Make sure you have the following installed on your machine:
 1. **Clone the repository:**
 
    ```
-   git clone https://github.com/your-username/recipe-management-app.git
+   git clone https://github.com/abdellah-belcaid/recipe-management-app.git
    cd recipe-management-app
    ```
 
@@ -87,5 +87,5 @@ recipe-management-app/
 5. **Technologies Used**
    Spring Boot
    Angular
-   MySQL (or your preferred database)
+   MySQL (or your preferred database -must be configured correctly)
    Tailwind CSS

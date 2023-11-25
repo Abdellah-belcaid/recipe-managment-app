@@ -41,8 +41,8 @@ public class RecipeManagementApplication {
 			Long userId = 1L;
 
 			// Save the recipes to the database
-			//recipeService.createRecipe(recipe1, userId);
-			//recipeService.createRecipe(recipe2, userId);
+			recipeService.createRecipe(recipe1, userId);
+			recipeService.createRecipe(recipe2, userId);
 		};
 	}
 }
