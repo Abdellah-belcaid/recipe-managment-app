@@ -18,7 +18,7 @@ public class AppConfig {
     CorsFilter corsFilter() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setAllowedOriginPatterns(List.of("*")); // Use setAllowedOriginPatterns instead of setAllowedOrigins
+        corsConfiguration.setAllowedOriginPatterns(List.of("*"));
         corsConfiguration.setAllowedHeaders(List.of("*"));
         corsConfiguration.setAllowedMethods(List.of("*"));
         UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();

@@ -1,7 +1,9 @@
 <!-- recipe-list.component.html -->
-<!-- recipe-list.component.html -->
 <app-recipe-search (searchEvent)="searchRecipes($event)"></app-recipe-search>
-<!-- Your existing recipe list grid goes here -->
+
+<p *ngIf="noResultsMessage" class="text-red-500 text-center justify-center text-2xl ">{{ noResultsMessage }}</p>
+
+
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
     <div *ngFor="let recipe of filteredRecipes" class="bg-white p-6 rounded-lg shadow-md">
@@ -14,24 +16,38 @@
             <span class="text-gray-700">{{ recipe.preparationTime }} minutes</span>
         </div>
 
-        <!-- Ingredients section -->
-        <div class="mb-4">
-            <div class="font-bold text-gray-800 mb-2">Ingredients:</div>
-            <ul class="list-disc pl-4 text-gray-700">
-                <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient }}</li>
-            </ul>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+            <div>
+                <!-- Ingredients section -->
+                <div class="mb-4">
+                    <div class="font-bold text-gray-800 mb-2">Ingredients:</div>
+                    <ul class="list-disc pl-4 text-gray-700">
+                        <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient }}</li>
+                    </ul>
+                </div>
+
+                <!-- Preparation steps section -->
+                <div>
+                    <div class="font-bold text-gray-800 mb-2">Preparation Steps:</div>
+                    <ol class="list-decimal pl-4 text-gray-700">
+                        <li *ngFor="let step of recipe.preparationSteps">{{ step }}</li>
+                    </ol>
+                </div>
+
+
+            </div>
+            <!-- Random Recipe Image -->
+            <div class="mt-6">
+                <img [src]="randomMealImage" alt="Random Meal Image" class="w-full h-40 object-cover mb-4 rounded-lg">
+
+            </div>
+
         </div>
 
-        <!-- Preparation steps section -->
-        <div>
-            <div class="font-bold text-gray-800 mb-2">Preparation Steps:</div>
-            <ol class="list-decimal pl-4 text-gray-700">
-                <li *ngFor="let step of recipe.preparationSteps">{{ step }}</li>
-            </ol>
-        </div>
+
 
         <!-- Edit and Delete buttons -->
-        <div class="flex justify-end mt-6">
+        <div class="flex content-end justify-end items-end place-content-end">
             <button (click)="editRecipe(recipe)"
                 class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2 focus:outline-none focus:shadow-outline">
                 Edit

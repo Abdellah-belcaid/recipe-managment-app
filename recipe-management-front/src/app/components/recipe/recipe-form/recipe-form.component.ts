@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from 'src/app/models/recipe.model';
 import { RecipeService } from 'src/app/service/recipe.service';
+import { showAlert, getStatusName } from 'src/app/utils/alertMessages';
 
 @Component({
   selector: 'app-recipe-form',
@@ -35,12 +36,12 @@ export class RecipeFormComponent implements OnInit {
       this.recipeService.getRecipeById(id).subscribe(
         (recipe: Recipe) => {
           this.recipe = recipe;
-
           this.ingredients = this.recipe.ingredients.join('\n');
           this.preparationSteps = this.recipe.preparationSteps.join('\n');
 
         },
         error => {
+          showAlert('error', `Error : ${getStatusName(error.status)}`, `${error.message}`);
           console.log('Error loading recipe:', error);
 
         }
@@ -62,12 +63,14 @@ export class RecipeFormComponent implements OnInit {
     console.log('Recipe created:', this.recipe);
     this.recipeService.createRecipe(this.recipe).subscribe(
       (createdRecipe: Recipe) => {
+        showAlert('success', 'Success', 'Recipe created successfully.');
         console.log('Recipe created:', createdRecipe);
 
         // Redirect to the recipe detail page or any other desired location
         this.router.navigate(['/']);
       },
       (error: any) => {
+        showAlert('error', `Error : ${getStatusName(error.status)}`, `${error.message}`);
         console.log('Error creating recipe:', error);
 
       }
@@ -79,13 +82,14 @@ export class RecipeFormComponent implements OnInit {
     this.recipe.preparationSteps = this.preparationSteps.split("\n");
     this.recipeService.updateRecipe(this.recipe.id, this.recipe).subscribe(
       (updatedRecipe: Recipe) => {
+        showAlert('success', 'Success', 'Recipe updated successfully.');
         console.log('Recipe updated:', updatedRecipe);
         // Redirect to the recipe detail page or any other desired location
         this.router.navigate(['/']);
       },
       (error: any) => {
+        showAlert('error', `Error : ${getStatusName(error.status)}`, `${error.message}`);
         console.log('Error updating recipe:', error);
-        // Handle error, e.g., show an alert
       }
     );
   }
